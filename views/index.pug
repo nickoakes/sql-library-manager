@@ -4,7 +4,7 @@ block content
     h1 Book List
     p 
         a(class="button" href="/books/new") Add new book
-        a(class="button" href="/books" id="backButton" hidden= back ? false : true)= "< " + back
+        a(class="button" href="/books" id="backButton" hidden= back ? false : true)= back
     form(action="/books/search" method="GET")
         input(type="search" id="search-input" class="search-input" placeholder="Search..." name="search")
         input(type="submit" value="Search" id="search-submit" class="search-submit")
@@ -23,4 +23,6 @@ block content
                 td= book.author
                 td= book.genre
                 td= book.year
+    h2= message
+    a(class="button" href="/books" id="backButton" hidden= message ? false : true)= back
     div(id='paginationLinks')

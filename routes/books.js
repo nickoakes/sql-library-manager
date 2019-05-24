@@ -150,10 +150,10 @@ router.get('/books/search', function(req, res, next) {
     ]
 }})
     .then(function(books) {
-        if(books) {
-            res.render('index', {books: books, back: "Back"});
+        if(books.length) {
+            res.render('index', {books: books, back: "< Back"});
         } else {
-            res.render('page-not-found');
+            res.render('index', {books: {}, message: "Sorry, no books were found", back: "< Back"});
         }
     })
     .catch(function() {
